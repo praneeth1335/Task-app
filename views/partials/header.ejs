@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title || 'Task Manager' %></title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body class="bg-zinc-900 text-white">
+    <header class="border-b border-zinc-700">
+      <nav
+        class="container mx-auto px-4 py-3 flex justify-between items-center"
+      >
+        <div class="flex items-center space-x-2">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-8 w-8 text-blue-500"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
+            />
+          </svg>
+          <span class="text-xl font-bold">TaskMaster</span>
+        </div>
+
+        <div class="flex items-center space-x-4">
+          <% if (isAuthenticated) { %>
+          <a href="/" class="hover:text-blue-400 transition">Dashboard</a>
+          <a
+            href="/logout"
+            class="bg-zinc-800 hover:bg-zinc-700 px-4 py-2 rounded-md transition"
+            >Logout</a
+          >
+          <% } else { %>
+          <a href="/login" class="hover:text-blue-400 transition">Login</a>
+          <a
+            href="/register"
+            class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-md transition"
+            >Register</a
+          >
+          <% } %>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container mx-auto px-4 py-8"></main>
+  </body>
+</html>
